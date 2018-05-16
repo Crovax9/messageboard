@@ -41,9 +41,10 @@
             </thead>
             
         </table>
-        <form action="database.php" method="post">
+        <form action="database.php" method="post" enctype="multipart/form-data">
             <input type="text" name="title" placeholder="title" required>
             <input type="text" name="message" placeholder="message" required>
+            <div><input type="file" name="add_book_image"></div>
             <input type="submit" name="submit_add_message" value="登録">
         </form>
 

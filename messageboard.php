@@ -48,6 +48,7 @@
                     <th>id</th>
                     <th>タイトル</th>
                     <th>メッセージ</th>
+                    <th>イメージ</th>
                 </tr>
             </thead>
             <tbody>
@@ -59,7 +60,7 @@
                     $id = $record['id'];
                     $title = $record['title'];
                     $message = $record['message'];
-                    
+                    $imageurl = $record['imageurl'];
                     
 ?>
                 
@@ -67,6 +68,7 @@
                     <td><a href="detail.php?title=<?php echo $id ?>"><?php print htmlspecialchars($id, ENT_QUOTES, 'UTF-8'); ?></a></td>
                     <td><?php print htmlspecialchars($title, ENT_QUOTES, 'UTF-8'); ?></td>
                     <td><?php print htmlspecialchars($message, ENT_QUOTES, 'UTF-8'); ?></td>
+                    <td><img src="<?php print htmlspecialchars($imageurl, ENT_QUOTES, 'UTF-8'); ?>" alt=""></td>
                 </tr>
 <?php
                 }

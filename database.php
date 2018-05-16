@@ -12,22 +12,31 @@ session_start();
     if($_POST['submit_add_message'])
     {
         if ($_POST['title']) {
-            $sql = 'INSERT INTO board (title, message) VALUES(:title, :message)';
+            $file_name = $_FILES['add_book_image']['name'];
+            $image_path = './uploads/' . $file_name;
+            move_uploaded_file($_FILES['add_book_image']['tmp_name'], $image_path);
+        
+            $sql = 'INSERT INTO board (title, message, imageurl) VALUES(:title, :message, :imageurl)';
             $statement = $database->prepare($sql);
             $statement->bindParam(':title', $_POST['title']);
             $statement->bindParam(':message', $_POST['message']);
+            $statement->bindParam(':imageurl', $image_path);
             $statement->execute();
             $statement = null;
         }
     }
     else if($_POST['submit_modify_message'])
     {
+        $file_name = $_FILES['add_book_image']['name'];
+        $image_path = './uploads/' . $file_name;
+        move_uploaded_file($_FILES['add_book_image']['tmp_name'], $image_path);
     
-        $sql = 'UPDATE board SET title = :title, message = :message WHERE id = :id';
+        $sql = 'UPDATE board SET title = :title, message = :message, imageurl = :imageurl WHERE id = :id';
         $statement = $database->prepare($sql);
         $statement->bindParam(':id', $_POST['id']);
         $statement->bindParam(':title', $_POST['title']);
         $statement->bindParam(':message', $_POST['message']);
+        $statement->bindParam(':imageurl', $image_path);
         $statement->execute();
         $statement = null;
     }

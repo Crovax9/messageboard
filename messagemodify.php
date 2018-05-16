@@ -53,15 +53,17 @@ session_start();
                             {
                                 $title = $record['title'];
                                 $message = $record['message'];
+                                $imageurl = $record['imageurl'];
                             }
                         }
                     }
             
                 ?>
-                <form action="database.php" method="post">
+                <form action="database.php" method="post" enctype="multipart/form-data">
                     <input type="hidden" name="id" value=<?php echo $_GET['title'] ?>>
                     <input type="text" name="title" value=<?php echo $title ?>>
                     <input type="text" name="message" value=<?php echo $message ?>>
+                    <div><input type="file" name="add_book_image"></div>
                     <input type="submit" name="submit_modify_message" value="登録">
                 </form>
                 
