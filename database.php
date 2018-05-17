@@ -63,6 +63,6 @@ session_start();
     
     $_SESSION["record"] = $records;
 
-    Header("Location:https://76e077fb831b49a59dcb90031718cd8f.vfs.cloud9.us-east-2.amazonaws.com/messageBoard/messageboard.php"); 
+    Header("Location:./messageboard.php"); 
 ?>
 

@@ -1,3 +1,5 @@
+CREATE DATABASE messageboard;
+
 CREATE  TABLE messageboard.board ( 
     id INT  AUTO_INCREMENT  NOT  NULL  PRIMARY  KEY , 
     title VARCHAR ( 100 ),
